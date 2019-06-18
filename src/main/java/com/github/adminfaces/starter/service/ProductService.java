@@ -59,7 +59,7 @@ public class ProductService implements Serializable {
     }
     
 	public void remove(Product product) {
-		findAll().remove(product);		
+		productRepository.delete(product);		
 	}
 	
     public long count(Filter<Product> filter) {
