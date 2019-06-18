@@ -1,11 +1,13 @@
 package com.github.adminfaces.starter.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Product {
+public class Product implements Serializable, Comparable<Product> {
 
 	@Id
 	@GeneratedValue
@@ -18,7 +20,7 @@ public class Product {
     
     
     public Product() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Integer getId() {
@@ -96,6 +98,12 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
+
+	@Override
+	public int compareTo(Product o) {
+		return this.id.compareTo(o.getId());
+	}
+
 
 
     
